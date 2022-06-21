@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.UI.MVC", "SAT.UI.MVC\SAT.UI.MVC.csproj", "{B0511E9A-264A-4E00-8344-D487A8505DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.DATA.EF", "SAT.DATA.EF\SAT.DATA.EF.csproj", "{178A3E70-1D99-4199-B799-3C7D7BAEC8A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0511E9A-264A-4E00-8344-D487A8505DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0511E9A-264A-4E00-8344-D487A8505DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0511E9A-264A-4E00-8344-D487A8505DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0511E9A-264A-4E00-8344-D487A8505DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178A3E70-1D99-4199-B799-3C7D7BAEC8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178A3E70-1D99-4199-B799-3C7D7BAEC8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178A3E70-1D99-4199-B799-3C7D7BAEC8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178A3E70-1D99-4199-B799-3C7D7BAEC8A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84BE7D6B-4511-4445-8FB4-213ED3CA2493}
+	EndGlobalSection
+EndGlobal
