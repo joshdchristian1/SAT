@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SAT.DATA.EF.Models.ScheduledClass>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Classes";
 }
-
-<h1>Index</h1>
+<div class="container">
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New Class</a>
 </p>
 <table class="table">
     <thead>
@@ -63,3 +63,4 @@
 }
     </tbody>
 </table>
+</div>
