@@ -1,13 +1,15 @@
-﻿@model IEnumerable<SAT.DATA.EF.Models.Enrollment>
+﻿
+@model IEnumerable<SAT.DATA.EF.Models.Enrollment>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Enrollments";
 }
 
-<h1>Index</h1>
+<div class="container mt-5">
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New Enrollment</a>
 </p>
 <table class="table">
     <thead>
@@ -16,7 +18,7 @@
                 @Html.DisplayNameFor(model => model.EnrollmentDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ScheduledClass)
+                @Html.DisplayNameFor(model => model.ScheduledClass.Course)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Student)
@@ -31,10 +33,10 @@
                 @Html.DisplayFor(modelItem => item.EnrollmentDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
+                @Html.DisplayFor(modelItem => item.ScheduledClass.Course.CourseName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.Email)
+                @Html.DisplayFor(modelItem => item.Student.FullName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.EnrollmentId">Edit</a> |
@@ -45,3 +47,4 @@
 }
     </tbody>
 </table>
+</div>

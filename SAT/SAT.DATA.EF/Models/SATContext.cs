@@ -9,6 +9,7 @@ namespace SAT.DATA.EF.Models
     {
         public SATContext()
         {
+            
         }
 
         public SATContext(DbContextOptions<SATContext> options)

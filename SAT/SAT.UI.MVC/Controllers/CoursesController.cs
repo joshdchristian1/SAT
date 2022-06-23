@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ using SAT.DATA.EF.Models;
 
 namespace SAT.UI.MVC.Controllers
 {
+    
+   
     public class CoursesController : Controller
     {
         private readonly SATContext _context;
@@ -19,14 +22,31 @@ namespace SAT.UI.MVC.Controllers
         }
 
         // GET: Courses
+
+
+        [Authorize(Roles = "Admin, Staff")]
+       
         public async Task<IActionResult> Index()
         {
+
+            var courses = _context.Courses.Where(c => c.IsActive);
               return _context.Courses != null ? 
-                          View(await _context.Courses.ToListAsync()) :
+                          View(await courses.ToListAsync()) :
                           Problem("Entity set 'SATContext.Courses'  is null.");
+
         }
 
+        public async Task<IActionResult> Retired()
+        {
+            var retcourses = _context.Courses.Where(c => !c.IsActive);
+            return _context.Courses != null ?
+                        View(await retcourses.ToListAsync()) :
+                        Problem("Entity set 'SATContext.Courses'  is null.");
+        }
+
+
         // GET: Courses/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Courses == null)
@@ -45,6 +65,7 @@ namespace SAT.UI.MVC.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +74,7 @@ namespace SAT.UI.MVC.Controllers
         // POST: Courses/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CourseId,CourseName,CourseDescription,CreditHours,Curriculum,Notes,IsActive")] Course course)
@@ -67,6 +89,7 @@ namespace SAT.UI.MVC.Controllers
         }
 
         // GET: Courses/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Courses == null)
@@ -85,6 +108,7 @@ namespace SAT.UI.MVC.Controllers
         // POST: Courses/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CourseId,CourseName,CourseDescription,CreditHours,Curriculum,Notes,IsActive")] Course course)
@@ -118,6 +142,7 @@ namespace SAT.UI.MVC.Controllers
         }
 
         // GET: Courses/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Courses == null)
@@ -136,6 +161,7 @@ namespace SAT.UI.MVC.Controllers
         }
 
         // POST: Courses/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

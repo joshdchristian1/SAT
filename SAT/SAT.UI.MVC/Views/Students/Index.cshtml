@@ -4,12 +4,15 @@
     ViewData["Title"] = "Students";
 }
 
-<div class="container">
+<div class="container mt-5">
 <h1>@ViewData["Title"]</h1>
 
+@if (User.IsInRole("Admin"))
+    {
 <p>
     <a asp-action="Create">Add a student</a>
 </p>
+    }
 <table class="table">
     <thead>
         <tr>
@@ -44,7 +47,7 @@
                 @Html.DisplayNameFor(model => model.PhotoUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ss)
+                @Html.DisplayNameFor(model => model.Ss.Ssname)
             </th>
             <th></th>
         </tr>
@@ -86,9 +89,17 @@
                 @Html.DisplayFor(modelItem => item.Ss.Ssname)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
+                @if (User.IsInRole("Admin"))
+    {
+        <span>
+                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> | 
+                </span>      
+    }
                 <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+                @if (User.IsInRole("Admin"))
+    {
+                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>        
+    }
             </td>
         </tr>
 }

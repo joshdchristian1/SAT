@@ -36,6 +36,7 @@ namespace SAT.DATA.EF.Models
 
         [StringLength(10)]
         [DataType(DataType.PostalCode)]
+        [Display(Name ="Zip Code")]
         public string? ZipCode { get; set; }
 
         [StringLength(13)]
@@ -100,11 +101,13 @@ namespace SAT.DATA.EF.Models
         public int CourseId { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString="dd/mm/yy")]
+        [Display(Name ="Start Date")]
         public DateTime StartDate { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
 
         [StringLength(40)]
@@ -129,7 +132,7 @@ namespace SAT.DATA.EF.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name ="Scheduled Class")]
+        [Display(Name ="Status")]
         public string Scsname { get; set; } = null!;
     }
     #endregion

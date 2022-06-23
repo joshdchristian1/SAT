@@ -3,15 +3,26 @@
     max-height: 65vh;
 }
 
-div .card {
+/*div .card {
     height: 200px;
-}
+}*/
 
 div .card-body {
     text-align:center;
 }
 
 div .card-header {
-    text-align: center
-    
+    text-align: center;
+    font-size: 2em;
+    font-weight: 500;
+}
+div .card-body img {
+    text-align: center;
+    height: 200px;
+}
+
+@media only screen and (max-width: 1560px) {
+    .hide {
+        display: none;
+    }
 }

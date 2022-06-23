@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Classes";
 }
-<div class="container">
+<div class="container mt-5" >
 <h1>@ViewData["Title"]</h1>
 
 <p>
@@ -28,7 +28,10 @@
                 @Html.DisplayNameFor(model => model.Course)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Scs)
+                @Html.DisplayNameFor(model => model.Course.CourseDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scs.Scsname)
             </th>
             <th></th>
         </tr>
@@ -49,6 +52,9 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Course.CourseDescription)
             </td>
             <td>
@@ -57,7 +63,10 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ScheduledClassId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ScheduledClassId">Details</a> |
+                @if (User.IsInRole("Admin"))
+    {
                 <a asp-action="Delete" asp-route-id="@item.ScheduledClassId">Delete</a>
+    }
             </td>
         </tr>
 }

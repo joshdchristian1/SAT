@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SAT.DATA.EF.Models.Course>
 
 @{
-    ViewData["Title"] = "Courses";
+    ViewData["Title"] = "Retired Courses";
 }
 
 <div class="container mt-5">
@@ -10,8 +10,7 @@
 @if (User.IsInRole("Admin"))
     {
 <p>
-    <a asp-action="Create">Create New Course</a> |
-    <a asp-action="Retired">Retired Courses</a>
+    <a asp-action="Index">Active Classes</a>
 </p>        
     }
 <table class="table">

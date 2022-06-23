@@ -9,7 +9,9 @@ namespace SAT.DATA.EF.Models
 {
     #region Students
     [ModelMetadataType(typeof(StudentMetadata))]
-    public partial class Student { }
+    public partial class Student {
+        public string FullName { get { return $"{FirstName} {LastName}"; } }
+    }
     #endregion
 
     #region StudentStatuses
@@ -24,7 +26,10 @@ namespace SAT.DATA.EF.Models
 
     #region ScheduledClasses
     [ModelMetadataType(typeof(ScheduledClassMetadata))]
-    public partial class ScheduledClass { }
+    public partial class ScheduledClass {
+        //Build a custom property in the ScheduledClass partial that combines the StartDate, CourseName, and Location information.
+        public string FullClass { get { return $"{StartDate.Date:d}, {Course.CourseName}, {Location}"; } }
+    }
     #endregion
 
     #region ScheduledClassStatuses
