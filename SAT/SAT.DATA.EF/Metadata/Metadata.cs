@@ -101,7 +101,7 @@ namespace SAT.DATA.EF.Models
         public int CourseId { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString="dd/mm/yy")]
+        [DataType(DataType.Date)]
         [Display(Name ="Start Date")]
         public DateTime StartDate { get; set; }
 

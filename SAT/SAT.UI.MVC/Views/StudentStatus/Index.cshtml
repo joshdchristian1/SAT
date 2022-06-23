@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<SAT.DATA.EF.Models.StudentStatus>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Student Status";
 }
-
-<h1>Index</h1>
+<div class="container mt-5">
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Ssname)
@@ -39,3 +39,4 @@
 }
     </tbody>
 </table>
+</div>
